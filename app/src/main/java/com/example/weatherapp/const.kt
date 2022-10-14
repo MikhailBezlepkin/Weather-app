@@ -1,3 +1,3 @@
 package com.example.weatherapp
 
-val API_KEY = "fd9dea1c5c0149e8a9a61859221309"
+val API_KEY = " c2a5bb1626ee4221b2d183827221310 "
