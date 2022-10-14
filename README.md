@@ -1,27 +1,36 @@
 # Weather app
-This app using The [Weather API](https://www.weatherapi.com/my/) and written in Kotlin with Android Studio.
+This app using the [Weather API](https://www.weatherapi.com/my/) and written in Kotlin with Android Studio.
 ***
-## Rick and Morty app staсk:
-* Using Retrofit for fetching data from Rick and Morty API;
+## Weather app staсk:
+* Using Volley for fetching data from Weather API;
 * MVVM pattern;
-* Coroutines;
+* Picasso for image processing;
 * Navigation-fragment.
 ***
 ## Description:
-* When you open the app, you see the following screen
+For the application to work correctly, you may need an individual key, which can be obtained by registering on the site [Weather API](https://www.weatherapi.com/my/).
 
-![](https://github.com/MikhailBezlepkin/Screenshots/blob/main/RaM.png)
+After that, you need to insert it in place of the current key in the file com/example/weatherapp/const.kt
 
-* By clicking the "Персонажи", "Локации" or "Эпизоды"  button. You will open the next fragments, displaying Characters, Locations or Episodes of the series:
+```kotlin
+package com.example.weatherapp
 
-![](https://github.com/MikhailBezlepkin/Screenshots/blob/main/RaMChar1.png)
-![](https://github.com/MikhailBezlepkin/Screenshots/blob/main/RaMLoc.png)
-![](https://github.com/MikhailBezlepkin/Screenshots/blob/main/RaMEp.png)
+val API_KEY = " c2a5bb1626ee4221b2d183827221310 "
+```
 
-***
+* After launching the application, if geolocation is not enabled, a notification will be shown asking you to enable it.
 
-Pressing the "Назад" button will return you to the start screen.
-And by entering text in the search bar and clicking the "Поиск" button, you can run a query and sort the received data
+![](https://github.com/MikhailBezlepkin/Screenshots/blob/main/WANot.png)
 
+If you turn on geolocation, then data will be immediately displayed in accordance with your location, otherwise you will see a screen displaying weather data for the city of Omsk:
 
-![](https://github.com/MikhailBezlepkin/Screenshots/blob/main/RaMChar2.png)
+![](https://github.com/MikhailBezlepkin/Screenshots/blob/main/WAHo.png)
+
+* In the lower right corner, a block displaying current data. There is a geolocation button, when clicked, data will be displayed according to your location.
+On the left is the search button, by clicking on which you can see the weather by entering the name of the city or coordinates::
+
+![](https://github.com/MikhailBezlepkin/Screenshots/blob/main/WAFi.png)
+
+*When you select the "DAYS" section, you will see the weather forecast for the next three days. And you can see it in detail by selecting a specific day and go to the "HOURS" section
+
+![](https://github.com/MikhailBezlepkin/Screenshots/blob/main/WADa.png)
