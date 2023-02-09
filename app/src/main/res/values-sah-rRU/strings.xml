@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Weather app</string>
+    <string name="hours">Часы</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="days">Дни</string>
+    <string name="search">Введите название города</string>
+    <string name="empty">Empty</string>
+    <string name="GPS">Местоположение выключенно</string>
+    <string name="language">Рус./США</string>
+    <string name="city_name">Город</string>
+    <string name="current_temp">Температура сейчас</string>
+    <string name="max_temp">Наибольшая температура</string>
+    <string name="min_temp">Наименьшая температура</string>
+</resources>

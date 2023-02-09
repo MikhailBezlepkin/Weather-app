@@ -8,15 +8,14 @@ import android.location.LocationManager
 import android.os.Bundle
 import android.provider.Settings
 import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import androidx.activity.result.ActivityResultCallback
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.app.ActivityCompat
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import androidx.fragment.app.activityViewModels
 import com.android.volley.Request
@@ -27,13 +26,13 @@ import com.example.weatherapp.adapters.VpAdapter
 import com.example.weatherapp.databinding.FragmentMainBinding
 import com.example.weatherapp.model.WeatherModel
 import com.google.android.gms.location.FusedLocationProviderClient
-import com.google.android.gms.location.LocationRequest
 import com.google.android.gms.location.LocationServices
 import com.google.android.gms.location.Priority
 import com.google.android.gms.tasks.CancellationTokenSource
 import com.google.android.material.tabs.TabLayoutMediator
 import com.squareup.picasso.Picasso
 import org.json.JSONObject
+
 
 class MainFragment : Fragment() {
     private lateinit var fLocationClient: FusedLocationProviderClient
@@ -49,6 +48,10 @@ class MainFragment : Fragment() {
         "Days"
     )
 
+
+
+
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -56,6 +59,7 @@ class MainFragment : Fragment() {
         // Inflate the layout for this fragment
         binding = FragmentMainBinding.inflate(inflater, container, false)
         return binding.root
+
     }
 
 
@@ -64,7 +68,7 @@ class MainFragment : Fragment() {
         visibilityItem()
         checkPermission()
         init()
-        requestWeatherData("Omsk")
+        requestWeatherData("Novosibirsk")
         updateCurrentCard()
 
         ibSearch.setOnClickListener {
@@ -83,7 +87,14 @@ class MainFragment : Fragment() {
         ibClose.setOnClickListener {
             visibilityItem()
         }
+        ibUpdate.setOnClickListener {
+            init()
+            requestWeatherData(edSearchCity.text.toString())
+            updateCurrentCard()
+            visibilityItem()
+        }
     }
+
 
     override fun onResume() {
         super.onResume()
@@ -102,6 +113,7 @@ class MainFragment : Fragment() {
             checkLocation()
         }
     }
+
 
     private fun checkLocation(){
         if (isLocationEnabled()){
@@ -150,6 +162,8 @@ class MainFragment : Fragment() {
         ibClose.visibility = View.GONE
         ibSearchCity.visibility = View.GONE
         edSearchCity.visibility = View.GONE
+        tvCityName.visibility = View.GONE
+
     }
 
     private fun searchCity() = with(binding) {
